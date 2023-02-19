@@ -3,9 +3,9 @@ import { AppBar, Toolbar, Typography } from '@mui/material';
 import TimeComponent from "../TimeComponent";
 
 
-function HeaderComponent(props) {
+function HeaderComponent({theme}) {
     return (
-        <AppBar position="static" color={props.theme} >
+        <AppBar position="static" color={theme} >
             <Toolbar>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     Weather App

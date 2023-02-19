@@ -1,8 +1,8 @@
 import { AppBar, Toolbar, Typography } from '@mui/material';
 
-function FooterComponent(props) {
+function FooterComponent({theme}) {
     return (
-        <AppBar position="fixed" color={props.theme} sx={{ top: 'auto', bottom: 0,  flexShrink: 0}}>
+        <AppBar position="fixed" color={theme} sx={{ top: 'auto', bottom: 0,  flexShrink: 0}}>
             <Toolbar>
                 <Typography variant="body2" color="inherit" align="center">
                     stassold &copy; {new Date().getFullYear()}
