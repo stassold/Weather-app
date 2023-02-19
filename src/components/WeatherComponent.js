@@ -12,6 +12,7 @@ import Haze from  '../img/weather-icon/haze.png';
 import Dust from  '../img/weather-icon/dust.png';
 import Fog from  '../img/weather-icon/fog.png';
 import Sand from  '../img/weather-icon/sand.png';
+import LoaderComponent from "./UI/LoaderComponent";
 
 const Weather = ({ lat, lon}) => {
     const [weatherData, setWeatherData] = useState(null);
@@ -33,7 +34,7 @@ const Weather = ({ lat, lon}) => {
     }, [lat, lon]);
 
     if (isLoading) {
-        return <p>Loading weather data...</p>;
+        return LoaderComponent
     }
 
     if (error) {
@@ -48,8 +49,9 @@ const Weather = ({ lat, lon}) => {
             break;
         case 'Drizzle':
             weatherIcon = Drizzle;
+            break;
         case 'Wind':
-            weatherIcon = Drizzle;
+            weatherIcon = Wind;
             break;
         case 'Rain':
             weatherIcon = Rain;
@@ -90,7 +92,7 @@ const Weather = ({ lat, lon}) => {
             <h1>Weather for {weatherData.name}</h1>
             <img height="64px" width="64px" src={weatherIcon} alt={weatherData.weather[0].main} />
             <ul>
-                <p>Temperature: {weatherData.main.temp - 273.15} °C</p>
+                <p>Temperature: {(weatherData.main.temp - 273.15).toFixed(2)} °C</p>
                 <p>Humidity: {weatherData.main.humidity}%</p>
             </ul>
         </div>
