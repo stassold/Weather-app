@@ -1,0 +1,15 @@
+.container
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.NasaApod{
+    grid-area: 2 / 1 / 4 / 4;
+}
+
+.WeatherComp{
+    grid-area: 1 / 1 / 2 / 2;
+}
+

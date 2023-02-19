@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+
 function TimeComponent() {
     const [time, setTime] = useState(new Date());
 
@@ -12,8 +13,8 @@ function TimeComponent() {
     }, []);
 
     return (
-        <div>
-            {time.toLocaleTimeString()}
+        <div >
+            {time.toLocaleDateString() + ' ' + time.toLocaleTimeString()}
         </div>
     );
 }

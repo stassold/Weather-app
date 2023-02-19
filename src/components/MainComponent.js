@@ -3,7 +3,7 @@ import WeatherComponent from './WeatherComponent';
 import NasaApodComponent from './NasaApodComponent';
 import FooterComponent from './UI/FooterComponent';
 import HeaderComponent from "./UI/HeaderComponent";
-import { Container } from '@mui/material';
+import styles from "./MainComponent.module.css"
 
 function MainComponent() {
     const [time, setTime] = useState(new Date());
@@ -35,10 +35,10 @@ function MainComponent() {
     return (
         <div>
         <HeaderComponent theme={isDaytime} />
-            <Container sx={{ marginTop: '2rem', marginBottom: '2rem'}}>
-                <WeatherComponent lat={lat} lon={lon} />
-                <NasaApodComponent />
-            </Container>
+            <div className={styles.container}>
+                <WeatherComponent className={styles.WeatherComp} lat={lat} lon={lon} />
+                <NasaApodComponent  className={styles.NasaApod} />
+            </div>
         <FooterComponent theme={isDaytime} />
         </div>
     );
