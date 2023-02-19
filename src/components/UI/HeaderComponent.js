@@ -1,28 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import TimeComponent from "../TimeComponent";
 
 
-function HeaderComponent() {
-    const [time, setTime] = useState(new Date());
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setTime(new Date());
-        }, 1000);
-        return () => clearInterval(intervalId);
-    }, []);
-
-    const hour = time.getHours();
-    const isDaytime = hour >= 6 && hour < 18 ? 'primary' : 'secondary';
-
+function HeaderComponent(props) {
     return (
-        <AppBar position="static" color={isDaytime ? 'primary' : 'secondary'}>
+        <AppBar position="static" color={props.theme} >
             <Toolbar>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     Weather App
                 </Typography>
-                <Typography variant="subtitle1" component="div" sx={{ flexGrow: 1 }}>
+                <Typography variant="subtitle1" component="div" sx={{ flexGrow: 0 }}>
                     <TimeComponent></TimeComponent>
                 </Typography>
             </Toolbar>

@@ -13,8 +13,7 @@ function TimeComponent() {
 
     return (
         <div>
-            <h2>Current Time:</h2>
-            <h3>{time.toLocaleTimeString()}</h3>
+            {time.toLocaleTimeString()}
         </div>
     );
 }
