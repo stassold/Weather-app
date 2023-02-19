@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getCollectionById } from '/src/api/unsplashApi';
+import { getCollectionById } from '../api/unsplashApi';
 
 function CollectionPhotos() {
     const [id, setId] = useState('');
