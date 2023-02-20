@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getCollectionById } from '../api/unsplashApi';
+import styles from "./CollectionPhotos.module.css"
 
 function CollectionPhotos() {
     const [id, setId] = useState('');
@@ -17,17 +18,17 @@ function CollectionPhotos() {
             <form onSubmit={handleSubmit}>
                 <label>
                     Collection ID:
-                    <input type="text" value={id} onChange={(event) => setId(event.target.value)} />
+                    <input type="number" min="1" value={id} onChange={(event) => setId(event.target.value)} />
                 </label>
                 <button type="submit">Get collection</button>
             </form>
             {collection && (
-                <div>
+                <div className={styles.photoGrid} >
                     {collection.map((photo) => (
                         <div key={photo.id}>
                             <h2>{photo.alt_description}</h2>
-                            <p>{photo.user.username}</p>
-                            <img src={photo.urls.small} alt={photo.description} />
+                            <p>Author: {photo.user.username}</p>
+                            <img  src={photo.urls.small} alt={photo.description} />
                         </div>
                     ))}
                 </div>
