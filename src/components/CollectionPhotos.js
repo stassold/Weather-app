@@ -9,6 +9,7 @@ function CollectionPhotos() {
         event.preventDefault();
         const data = await getCollectionById(id);
         setCollection(data);
+        console.log(data)
     };
 
     return (
@@ -22,15 +23,13 @@ function CollectionPhotos() {
             </form>
             {collection && (
                 <div>
-                    <h2>{collection.title}</h2>
-                    <p>{collection.description}</p>
-                    <ul>
-                        {collection.photos.map((photo) => (
-                            <li key={photo.id}>
-                                <img src={photo.urls.small} alt={photo.description} />
-                            </li>
-                        ))}
-                    </ul>
+                    {collection.map((photo) => (
+                        <div key={photo.id}>
+                            <h2>{photo.alt_description}</h2>
+                            <p>{photo.user.username}</p>
+                            <img src={photo.urls.small} alt={photo.description} />
+                        </div>
+                    ))}
                 </div>
             )}
         </div>
