@@ -34,12 +34,12 @@ function MainComponent() {
 
     return (
         <div>
-        <HeaderComponent className = {styles.Head} theme={isDaytime} />
+        <HeaderComponent  theme={isDaytime} />
             <div className={styles.container}>
-                <WeatherComponent className={styles.WeatherComp} lat={lat} lon={lon} />
-                <NasaApodComponent  className={styles.NasaApod} />
+                <WeatherComponent lat={lat} lon={lon} />
+                <NasaApodComponent  />
             </div>
-        <FooterComponent className = {styles.Footer} theme={isDaytime} />
+        <FooterComponent  theme={isDaytime} />
         </div>
     );
 }
