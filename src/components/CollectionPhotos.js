@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
-import { getCollectionById } from '../api/unsplashApi';
+import React, {useEffect, useState} from 'react';
+import { getCollectionById, RandomPhoto } from '../api/unsplashApi';
 import styles from "./CollectionPhotos.module.css"
 
 function CollectionPhotos() {
     const [id, setId] = useState('');
     const [collection, setCollection] = useState(null);
+    const [photo, setPhoto] = useState(null);
+
+    useEffect(() => {
+        RandomPhoto().then((data) => setPhoto(data))
+    }, []);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         const data = await getCollectionById(id);
         setCollection(data);
+        setPhoto(null)
         console.log(data)
     };
 
@@ -22,6 +28,13 @@ function CollectionPhotos() {
                 </label>
                 <button type="submit">Get collection</button>
             </form>
+
+            {photo && (
+                <div>
+                    <h2>Random photo collection</h2>
+                    <img src={photo[0].urls.small} alt={photo[0].alt_description} />
+                </div>
+            )}
             {collection && (
                 <div className={styles.photoGrid} >
                     {collection.map((photo) => (
