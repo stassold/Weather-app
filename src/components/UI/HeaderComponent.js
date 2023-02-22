@@ -1,7 +1,8 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@mui/material';
+import { AppBar, Toolbar, Typography} from '@mui/material';
 import TimeComponent from "../TimeComponent";
-import NavLinkComponent from "./NavLinkComponent";
+import ButtonLink from "./ButtonLink";
+
 
 
 function HeaderComponent({theme}) {
@@ -11,10 +12,15 @@ function HeaderComponent({theme}) {
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     Weather App
                 </Typography>
+                <ButtonLink to="/" variant="contained" color={theme}>
+                    Home
+                </ButtonLink>
+                <ButtonLink to="/collection" variant="contained" color={theme}>
+                    Collection
+                </ButtonLink>
                 <Typography variant="subtitle1" component="div" sx={{ flexGrow: 0 }}>
                     <TimeComponent></TimeComponent>
                 </Typography>
-               <NavLinkComponent/>
             </Toolbar>
         </AppBar>
     );

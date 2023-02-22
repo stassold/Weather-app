@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { getCollectionById, RandomPhoto } from '../api/unsplashApi';
 import styles from "./CollectionPhotos.module.css"
-import NavLinkComponent from "./UI/NavLinkComponent";
+import ButtonLink from "./UI/ButtonLink";
+import { Button } from '@mui/material';
 
 function CollectionPhotos() {
     const [id, setId] = useState('');
@@ -17,20 +18,22 @@ function CollectionPhotos() {
         const data = await getCollectionById(id);
         setCollection(data);
         setPhoto(null)
-        console.log(data)
     };
 
     return (
         <div>
+            <ButtonLink to="/" variant="contained" >
+                Home
+            </ButtonLink>
             <form onSubmit={handleSubmit}>
                 <label>
                     Collection ID:
                     <input type="number" min="1" value={id} onChange={(event) => setId(event.target.value)} />
                 </label>
-                <button type="submit">Get collection</button>
+                <Button color="primary" type="submit">Get collection</Button>
             </form>
 
-            <NavLinkComponent></NavLinkComponent>
+
 
             {photo && (
                 <div>
