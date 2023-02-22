@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { getCollectionById, RandomPhoto } from '../api/unsplashApi';
 import styles from "./CollectionPhotos.module.css"
+import NavLinkComponent from "./UI/NavLinkComponent";
 
 function CollectionPhotos() {
     const [id, setId] = useState('');
@@ -28,6 +29,8 @@ function CollectionPhotos() {
                 </label>
                 <button type="submit">Get collection</button>
             </form>
+
+            <NavLinkComponent></NavLinkComponent>
 
             {photo && (
                 <div>
